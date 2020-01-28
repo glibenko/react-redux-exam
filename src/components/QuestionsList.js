@@ -13,7 +13,7 @@ const QuestionsList = ({ list }) => {
       {list.map(el => (
         <Question
           key={el.id}
-          author={el.author}
+          {...el}
         />
       ))}
     </div>

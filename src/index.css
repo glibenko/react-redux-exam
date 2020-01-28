@@ -72,3 +72,35 @@ code {
 .tabs .active {
   background: #57c6fd; 
 }
+
+.question {
+  border: 1px solid #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.question .name {
+  background: #dedcdc;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.question .img {
+  width: 200px;
+  margin: 0 10px;
+}
+
+.question .img img {
+  width: 100%;
+}
+
+.question .link {
+  text-decoration: none;
+  color: #000;
+  background: #57c6fd;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 4px;
+  margin-top: 20px;
+}

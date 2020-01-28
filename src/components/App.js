@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { Route, withRouter, NavLink } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoginPage from './LoginPage';
 import { getUsers } from '../actions/users';
 import { logOut } from '../actions/authedUser';
 import HomePage from './HomePage';
 import Nav from './Nav';
+import PollPage from './PollPage';
 
 const App = ({ history, users, authedUser, dispatch }) => {
 
@@ -32,8 +33,9 @@ const App = ({ history, users, authedUser, dispatch }) => {
   return (
     <div className="container">
       <Nav logOut={logOut} dispatch={dispatch} authedUser={authedUser} />
-      <Route exact path="/login" component={LoginPage} />
       <Route exact path="/" component={HomePage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/questions/:id" component={PollPage} />
     </div>
   );
 }
