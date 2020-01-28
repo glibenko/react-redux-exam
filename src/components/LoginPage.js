@@ -4,7 +4,7 @@ import SingForm from './SingForm';
 const LoginPage = () =>  {
   return (
     <div>
-      <div> welcome to game </div>
+      <h3> Welcome to game </h3>
       <SingForm />
     </div>
   )

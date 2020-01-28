@@ -5,9 +5,7 @@ import LoginPage from './LoginPage';
 import { getUsers } from '../actions/users';
 import { logOut } from '../actions/authedUser';
 import HomePage from './HomePage';
-
-
-import './App.css';
+import Nav from './Nav';
 
 const App = ({ history, users, authedUser, dispatch }) => {
 
@@ -18,37 +16,24 @@ const App = ({ history, users, authedUser, dispatch }) => {
     }
   }, [users.data, dispatch]);
 
-  // useEffect(() => {
-  //   console.count('authedUser', history);
-  //   if (authedUser) {
-  //     history.push('/home');
-  //   } else {
-  //     history.push('/');
-  //   }
-  // }, [authedUser, history])
+  useEffect(() => {
+    console.count('authedUser', history);
+    if (authedUser) {
+      history.push('/');
+    } else {
+      history.push('/login');
+    }
+  }, [authedUser, history])
 
   if (users.loading || !users.data) {
-    return <div> loading... </div>
+    return <div className="loader"> loading... </div>
   }
 
   return (
-    <div>
-      <div>
-        <NavLink to="/home">Home</NavLink>
-        <NavLink to="/home">New Questions</NavLink>
-        <NavLink to="/home">Leader Board</NavLink>
-        {authedUser && (
-          <>
-            <div>{authedUser}</div>
-            <button onClick={() => dispatch(logOut())}>
-              log out
-            </button>
-          </>
-        )}
-      </div>
-      {/* <Route exact path="/" component={LoginPage} /> */}
+    <div className="container">
+      <Nav logOut={logOut} dispatch={dispatch} authedUser={authedUser} />
+      <Route exact path="/login" component={LoginPage} />
       <Route exact path="/" component={HomePage} />
-
     </div>
   );
 }

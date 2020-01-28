@@ -12,25 +12,26 @@ function SingForm({ users, dispatch }) {
   }
 
   return (
-    <div>
-      <form onSubmit={onSubmit}> 
-        <select
-          value={user}
-          onChange={(e) => handleUser(e.target.value)}
-        >
-          <option key='' value='' disabled>Select user</option>
-          {users.map((el) => 
-            <option key={el}>{el}</option>
-          )}
-        </select>
-        <button
-          onSubmit={onSubmit}
-          disabled={!user.length}
-        >
-          Sing in
-        </button>
-      </form>
-    </div>
+    <form className="sing-form" onSubmit={onSubmit}> 
+      <select
+        className="select"
+        value={user}
+        onChange={(e) => handleUser(e.target.value)}
+      >
+        <option key='' value='' disabled>Select user</option>
+        {users.map((el) => 
+          <option key={el}>{el}</option>
+        )}
+      </select>
+      <button
+        style={{ marginTop: 10 }}
+        className="btn"
+        onSubmit={onSubmit}
+        disabled={!user.length}
+      >
+        Sing in
+      </button>
+    </form>
   )
 }
 
