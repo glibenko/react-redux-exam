@@ -21,16 +21,13 @@ const QuestionsList = ({ list }) => {
 }
 
 const mapStateToProps = ({ users, questions, authedUser }, { type }) => {
-  if (!authedUser) {
-    return {}
-  }
   const user = users.data[authedUser];
   const answered = Object.keys(user.answers);
   let list = [];
   if (type === 'answered') {
     list = answered.map(el => questions.data[el])
   } else {
-    const unanswered =  Object.keys(questions.data).filter(el => !el.includes(answered));
+    const unanswered =  Object.keys(questions.data).filter(el => !answered.includes(el));
     list = unanswered.map(el => questions.data[el])
   }
 

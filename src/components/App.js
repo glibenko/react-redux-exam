@@ -32,7 +32,7 @@ const App = ({ history, users, authedUser, dispatch }) => {
 
   return (
     <div className="container">
-      <Nav logOut={logOut} dispatch={dispatch} authedUser={authedUser} />
+      <Nav logOut={logOut} dispatch={dispatch} authedUser={users.data?.[authedUser]} />
       <Route exact path="/" component={HomePage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/questions/:id" component={PollPage} />

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { saveAnswer } from '../actions/shared';
 
-const Question = ({ author, id, poll, user, optionOne }) => {
+const Question = ({ author, id, poll, user, optionOne, optionTwo, dispatch, authedUser }) => {
+  const [vote, setVote] = useState('optionOne');
 
-  console.log('user', user);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(saveAnswer(authedUser, id, vote))
+  }
+
   return (
     <div className="question">
       <div className="name">{user.name} asks?</div>
@@ -23,13 +29,35 @@ const Question = ({ author, id, poll, user, optionOne }) => {
                 </Link>
               </div>
             ) : (
-              <div>
+              <form className="form-vote" onSubmit={handleSubmit}>
                 <div>
-                  <input type="radio" name="vote" />
-                  <input type="radio" name="vote" />
+                  <label>
+                    <input
+                      type="radio"
+                      value="optionOne"
+                      checked={vote === 'optionOne'}
+                      onChange={(e) => setVote(e.target.value)}
+                    />
+                    {optionOne.text}
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="optionTwo"
+                      checked={vote === 'optionTwo'}
+                      onChange={(e) => setVote(e.target.value)}
+                    />
+                    {optionTwo.text}
+                  </label>
                 </div>
-                <button> olala </button>
-              </div>
+                <button
+                  style={{ marginTop: 10 }}
+                  className="btn"
+                  onClick={handleSubmit}
+                >
+                  Submit
+                </button>
+              </form>
             )}
         </div>
       </div>
@@ -37,10 +65,11 @@ const Question = ({ author, id, poll, user, optionOne }) => {
   )
 }
 
-const mapStateToProps = ({ users }, { author }) => {
+const mapStateToProps = ({ users, authedUser }, { author }) => {
   const user = users.data[author];
   return {
-    user
+    user,
+    authedUser
   }
 }
 
