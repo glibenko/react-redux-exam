@@ -5,7 +5,7 @@ import Question from './Question';
 const QuestionsList = ({ list }) => {
 
   if (!list.length) {
-    return <div>Empty</div>
+    return <div style={{ marginTop: 20 }}>list is empty</div>
   }
 
   return (
@@ -30,6 +30,9 @@ const mapStateToProps = ({ users, questions, authedUser }, { type }) => {
     const unanswered =  Object.keys(questions.data).filter(el => !answered.includes(el));
     list = unanswered.map(el => questions.data[el])
   }
+
+  list.sort((a, b) =>  b.timestamp - a.timestamp)
+
 
   return {
     list

@@ -103,6 +103,7 @@ code {
 .question .img {
   width: 200px;
   margin: 10px 10px;
+  align-self: center;
 }
 
 .question .img img {
@@ -129,4 +130,132 @@ code {
 .form-vote input {
   margin-right: 10px;
   margin-bottom: 10px;
+}
+
+.line {
+  width: 90%;
+  padding: 10px 0;
+  margin: 10px auto;
+  border-radius: 6px;
+}
+
+.res-name {
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.res {
+  border: 1px solid green;
+  padding: 10px;
+  margin: 10px 10px 10px 0;
+  background: #dbf7db;
+  border-radius: 6px;
+  position: relative;
+}
+
+.lable-vote {
+  position: absolute;
+  border: 1px solid #ffff03;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  box-shadow: 0 0 5px 1px;
+  background: yellow;
+  padding: 4px;
+  right: -22px;
+  top: -22px;
+}
+
+.page404 {
+  font-size: 20;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.btn-out {
+  border: none;
+  font-size: 14px;
+  height: 20px;
+}
+
+.add {
+  width: 400px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.add .name {
+  font-size: 24px;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  padding: 10px
+}
+
+.add .sub-name {
+  font-size: 12px;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.add .add-question {
+  font-weight: bold;
+  text-align: left;
+  margin: 10px;
+}
+
+.add form {
+  padding: 10px;
+}
+
+.add input {
+  width: 90%;
+  margin: 10px 0;
+  height: 30px;
+  font-size: 14px;
+}
+
+.board {
+  display: flex;
+  width: 400px;
+  border: 1px solid #ccc;
+  margin: 10px auto;
+  border-radius: 6px;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.board .img {
+  width: 100px
+}
+
+.board img {
+  width: 100%
+}
+
+.board-middle {
+  text-align: left;
+}
+
+.board-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.board-text {
+  margin: 10px 0;
+}
+
+.board-right {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.board-score {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 10px;
 }

@@ -6,16 +6,16 @@ function Nav({ logOut, authedUser, dispatch }) {
     <div className="menu">
       <div>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/home">New Questions</NavLink>
-        <NavLink to="/home">Leader Board</NavLink>
+        <NavLink to="/add">New Questions</NavLink>
+        <NavLink to="/leaderboard">Leader Board</NavLink>
       </div>
       {!!authedUser && (
         <div className="login">
           <div>Hello, {authedUser.name}</div>
           <div><img src={authedUser.avatarURL} alt={authedUser.name} /></div>
-          <NavLink to="/login" onClick={() => dispatch(logOut())}>
+          <button className="btn-out" onClick={() => dispatch(logOut())}>
             log out
-          </NavLink>
+          </button>
         </div>
       )}
     </div>

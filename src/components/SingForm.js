@@ -5,7 +5,6 @@ import { setUser } from '../actions/authedUser';
 function SingForm({ users, dispatch }) {
   const [user, handleUser] = useState('');
 
-
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(setUser(user))
