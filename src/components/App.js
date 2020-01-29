@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoginPage from './LoginPage';
 import { getUsers } from '../actions/users';
@@ -36,12 +36,13 @@ const App = ({ history, users, authedUser, dispatch, questions }) => {
       {!authedUser 
         ? <LoginPage />
         : (
-          <>
+          <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/add" component={AddPoll} />
-            <Route path="/leaderboard" component={Board} />
-            <Route path="/questions/:id" component={PollPage} />
-          </>
+            <Route exact path="/add" component={AddPoll} />
+            <Route exact path="/leaderboard" component={Board} />
+            <Route exact path="/questions/:id" component={PollPage} />
+            <Redirect from='/*' to="/" />
+          </Switch>
       )}
     </div>
   );
