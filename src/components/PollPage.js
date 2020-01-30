@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import Question from './Question';
 import Result from './Result';
 
-function PollPage({ poll, score, user, show404 }) {
+function PollPage({ poll, score, user, show404, history }) {
   if (show404) {
-    return <div className="page404">404 - question not found</div>
+    // return <div className="page404">404 - question not found</div>
+    history.push('/404');
+    return null;
   }
 
   if (poll) {

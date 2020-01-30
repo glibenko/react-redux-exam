@@ -10,6 +10,7 @@ import PollPage from './PollPage';
 import { getQuestions } from '../actions/questions';
 import AddPoll from './AddPoll';
 import Board from './Board';
+import NotFoundPage from './NotFoundPage';
 
 const App = ({ history, users, authedUser, dispatch, questions }) => {
 
@@ -41,7 +42,8 @@ const App = ({ history, users, authedUser, dispatch, questions }) => {
             <Route exact path="/add" component={AddPoll} />
             <Route exact path="/leaderboard" component={Board} />
             <Route exact path="/questions/:id" component={PollPage} />
-            <Redirect from='/*' to="/" />
+            <Route path="/404" component={NotFoundPage} />
+            <Redirect from='/*' to="/404" />
           </Switch>
       )}
     </div>
